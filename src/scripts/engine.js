@@ -172,8 +172,8 @@ async function drawSelectCard(IdCard) {
 
 async function drawCards(cardNumber, fieldSide) {
     for(let i = 0; i < cardNumber; i++){
-        const randomIdCard = await getRandomCardId();
-        const cardimage = await createCardImage(randomIdCard, fieldSide);
+        const IdCard = cardData[i].id;
+        const cardimage = await createCardImage(IdCard, fieldSide);
 
         document.getElementById(fieldSide).appendChild(cardimage);
     }
