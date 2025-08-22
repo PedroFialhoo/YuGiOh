@@ -89,6 +89,14 @@ async function createCardImage(IdCard, fieldSide) {
         drawSelectCard(IdCard);
          });
 
+        cardimage.addEventListener("touchstart", () => {
+            drawSelectCard(IdCard);
+        });
+
+        cardimage.addEventListener("touchend", () => {
+            drawSelectCard(null);
+        });
+
         cardimage.addEventListener("click", () => {
             setCardsField(cardimage.getAttribute("data-id"));
         });
