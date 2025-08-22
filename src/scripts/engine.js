@@ -28,27 +28,45 @@ const pathImages = "./src/assets/icons/"
 const cardData = [
     {
         id: 0,
-        name: "Blue Eyes white Dragon",
+        name: "Blue Eyes White Dragon",
         type: "Paper",
-        img: `${pathImages}dragon.png`,
-        WinOf:[1],
-        LoseOf:[2]
+        img: `${pathImages}white-dragon-card.png`,
+        WinOf:[1, 4],
+        LoseOf:[2, 3]
     },
     {
         id: 1,
         name: "Dark Magician",
         type: "Rock",
-        img: `${pathImages}magician.png`,
-        WinOf:[2],
-        LoseOf:[0]
+        img: `${pathImages}dark-magician-card.png`,
+        WinOf:[2, 3],
+        LoseOf:[0, 4]
     },
     {
         id: 2,
         name: "Exodia",
         type: "Scissors",
-        img: `${pathImages}exodia.png`,
-        WinOf:[0],
-        LoseOf:[1]
+        img: `${pathImages}exodia-card.png`,
+        WinOf:[0, 3],
+        LoseOf:[1, 4]
+    }
+    ,
+    {
+        id: 3,
+        name: "Red Eyes Black Dragon",
+        type: "Lizard",
+        img: `${pathImages}black-dragon-card.png`,
+        WinOf:[0, 4],
+        LoseOf:[1, 2]
+    }
+    ,
+    {
+        id: 4,
+        name: "Magician of Black Chaos",
+        type: "Spock",
+        img: `${pathImages}magician-chaos-card.png`,
+        WinOf:[1, 2],
+        LoseOf:[0, 3]
     }
 ];
 
@@ -131,6 +149,7 @@ async function updateScore() {
 }
 
 async function drawSelectCard(IdCard) {
+    state.cardSprites.avatar.style.display = "block";
     state.cardSprites.avatar.src = cardData[IdCard].img;
     state.cardSprites.name.innerText = cardData[IdCard].name;
     state.cardSprites.type.innerText = `Attribute: ${cardData[IdCard].type}`;
@@ -153,6 +172,7 @@ async function resetDuel(){
 
     state.fieldCards.computer.style.display = "none";
     state.fieldCards.player.style.display = "none";
+    state.cardSprites.avatar.style.display = "none";
 
     init()
 }
