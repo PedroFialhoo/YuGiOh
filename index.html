@@ -27,10 +27,10 @@
             <source src="./src/assets/video/yugi.mp4" type="video/mp4">
         </video>
     </div>
-    
+
     <div class="container">
         <div class="container__left framed-golden-2">
-            <button id="info" class="frame">?</button>
+            <button id="info" class="frame" onclick="infoDetails()">?</button>
             <div class="score_box frame">
                 <span id="score_points"> Win : 0 | Lose : 0</span>
             </div>
@@ -41,6 +41,13 @@
                 <p id="card-name">Select</p>
                 <p id="card-type">a card</p>
             </div>          
+        </div>
+        <div id="modalOverlay"></div>
+
+        <div id="infoScreen" class="framed">
+            <button id="closeBtn" onclick="infoDetails()">x</button>
+            <h1>Rules</h1>
+            <img src="./src/assets/icons/rules.png" alt="" id="rules">
         </div>
 
         <div class="container__right">

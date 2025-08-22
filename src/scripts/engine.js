@@ -14,14 +14,20 @@ const state = {
         computer: document.getElementById("computer-field-card"),
     },
     playersSides: {
-    player1: "player-cards",
-    player1BOX: document.querySelector("#player-cards"),
-    computer: "computer-cards",
-    computerBOX: document.querySelector("#computer-cards"),
+        player1: "player-cards",
+        player1BOX: document.querySelector("#player-cards"),
+        computer: "computer-cards",
+        computerBOX: document.querySelector("#computer-cards"),
     },
     actions:{
-       button: document.getElementById("next-duel") 
-    }    
+        button: document.getElementById("next-duel"),
+        infoBtn: document.getElementById("info"),       
+        closeBtn: document.getElementById("closeBtn"),
+    },
+    screen:{
+        info: document.getElementById("infoScreen"),
+        modal: document.getElementById("modalOverlay"),
+    } 
 };    
 
 const pathImages = "./src/assets/icons/"
@@ -70,6 +76,7 @@ const cardData = [
     }
 ];
 
+let infoScreenActived = false
 
 async function getRandomCardId() {
     const randomIndex = Math.floor(Math.random() * cardData.length);
@@ -189,6 +196,20 @@ async function playAudio(status){
     const audio = new Audio(`./src/assets/audios/${status}.wav`);
     audio.volume = .05;
     audio.play();
+}
+
+async function infoDetails() {
+    if(!infoScreenActived){
+        state.screen.info.style.display = "flex";
+        state.screen.modal.style.display = "block";
+        infoScreenActived = true;
+        
+    }
+    else{
+        state.screen.info.style.display = "none";
+        state.screen.modal.style.display = "none";
+        infoScreenActived = false;
+    }
 }
 
 function init(){

@@ -38,6 +38,53 @@ button, a, img:hover, button:hover, a:hover{
     );
 }
 
+#modalOverlay {
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+#infoScreen{
+    width: 60%;
+    height: 60%;
+    background-color: #fff;
+    z-index: 1000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+#closeBtn{
+    align-self: flex-end;
+    background-color: #D27D2C;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+#closeBtn:hover{
+    background-color: #d27c2cb6;
+}
+
+#rules{
+    max-height: 80%;
+}
+
+
+#infoScreen h1{
+    color: #fff;
+    margin-bottom: 10px;
+}
+
 .container{
     position: relative;
     z-index: 1;
@@ -59,15 +106,18 @@ button, a, img:hover, button:hover, a:hover{
 }
 
 #info{
-    padding: 5px;
-    background-color: lightblue;
+    background-color: yellow;
     border-radius: 10px;
     position: absolute;
     left: 10px;
     top: 10px;
     text-align: center;
-    width: 20px;
-    height: 20px;
+    width: 5%;
+    height: 5%;
+}
+
+#info:hover{
+    background-color: rgb(190, 156, 0);
 }
 
 #card-image{
@@ -234,6 +284,15 @@ button, a, img:hover, button:hover, a:hover{
     .card{
         height: 80px;
     }
+
+    #infoScreen{
+    width: 100%;
+    height: 50%;
+    }
+
+    #rules{
+    max-width: 100%;
+    }
 }
 
 @media (max-width: 600px){
@@ -306,6 +365,15 @@ button, a, img:hover, button:hover, a:hover{
         overflow: hidden;
         justify-content: flex-start; 
 
+    }
+
+    #info{
+        align-self: flex-start;
+        border-radius: 10px;
+        position: relative;
+        width: 15%;
+        height: 15%;
+        margin-top: -20px;
     }
 
     #eye{
